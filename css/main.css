@@ -1,12 +1,24 @@
+/*
+
+Name: Ashley Vallette
+Date: 2022-04-03
+Purpose: Change the styles of miniGolfKiosk.html
+
+ */
+
+
 
 #container{
+    /* Adjust the container padding*/
     padding: 10px;
+    /* Centre the elements */
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
     width: 90%;
 
 }
+
 
 span.titleFont {
     padding-left: 10px;
@@ -33,17 +45,16 @@ div.totalArea{
 }
 
 
+/* To display the button for darkMode/lightMode on top of everything on the page. */
 .topOfForm {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     right: 0;
     padding: 15px;
     z-index: 999999;
 }
 
-button#lightMode {
-    display: none;
-}
+
 
 legend {
     padding-top: 40px!important;
