@@ -1,3 +1,13 @@
+/*
+*
+* Author: Ashley Vallette
+* Creation Date: April 3, 2022
+* Purpose: Gathers all the information from the page and calculates totals, and change value.
+* Requires: /img, /css, /js - including jquery > 3.3.1
+*
+* */
+
+// Allow the reset of the page, calculateChange function, and updateTotals. 
 (() => {
     $('#changeButton').on("click", calculateChange);
     $('#resetForm').on("click", resetForm);
