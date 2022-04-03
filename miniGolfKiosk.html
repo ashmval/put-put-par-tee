@@ -1,0 +1,124 @@
+<!--
+Name: Don Bowers
+Date:
+Purpose: Demonstrate the use of forms and functions to create a mini golf business interface.
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Jillian's Put Putt Par-tee</title>
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!--  Required for jQuery UI Datepicker functionality-->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+		<script src="js/createDarkMode.js"></script>
+
+		<noscript>
+			"You don't have Javascript turned on! In order for this page to function properly you must turn on Javascript."
+		</noscript>
+	</head>
+	<body id="body">
+		<div id="container"><!-- Navbar-->
+
+			<div class="navArea">
+				<div class="row">
+					<div class="col-md-6">
+						<img src="img/golfing.svg" class="golfImage">
+						<span class="titleFont">
+							Jillian's Putt Putt Par-Tee
+						</span>
+					</div>
+					<div class="col-md-6 sideText">
+						<span class="largeFont">Point of Sale System </span> - <span id="todaysDate"></span>
+					</div>
+				</div>
+				<br />
+			</div>
+
+
+			<div class="bodyText">
+
+				<!-- Banner Image Area -->
+
+<!--				<h2>Point of Sale System</h2>-->
+				<div class="row">
+					<div class="col-md-6">
+						<div id="leftArea">
+							<form>
+								<div class="form-group">
+									<fieldset class="right">
+										<legend><span class="largeFont">Players</span></legend>
+										<a href="#" title="(13 and older)">Adults</a>
+										<select class="form-control" id="adults">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select>  $4 each<br><br>
+										<a href="#" title="(12 and under)">Children</a>
+										<select class="form-control" id="children">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select> $2 each<br><br>
+									</fieldset>
+								</div>
+								<div class="form-group">
+									<fieldset>
+										<legend><span class="largeFont">Discounts</span></legend>
+										<input type="radio" id="caa" name="discountGroup" value="CAA" /> CAA (10%)<br>
+										<input type="radio" id="mil" name="discountGroup" value="Military" /> Military (25%)<br>
+										<input type="radio" id="fun" name="discountGroup" value="Fun Club Member" /> FunClub Member (50%)<br>
+									</fieldset>
+								</div>
+							</form>
+							<br>
+							<br>
+							<button class="btn btn-danger" id="resetForm" type="button">Reset Form</button>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div id="totalArea form-group">
+							<fieldset>
+								<legend><span class="largeFont">Totals</span></legend>
+								Number of Adults: <input class="form-control" type="text" id="numAdults" readonly="readonly" />    <span id="totalAdultsDiv"></span><br>
+								Number of Children: <input class="form-control" type="text" id="numChildren" readonly="readonly"/> <span id="totalChildrenDiv"></span><br><br>
+								Net Amount: <span id="totalBeforeTaxDiv"></span><br><br>
+								Gross Amount (including 10% tax): <span id="totalAfterTaxDiv"></span><br>
+								<label for="changeAmount">How much money did the customer give you?</label>
+								<input class="form-control" type="text" id="changeAmount" />
+								<div class="buttonPadding">
+									<button type="button" id="changeButton" class="btn btn-primary" onclick="calculateChange()">$CHANGE?</button>
+								</div>
+								<div id="changeOutput">
+									You owe the customer: <span id="changeDue"></span>
+								</div>
+								<hr>
+								Discounts Applied:<br>
+								<span id="discountString"></span>
+							</fieldset>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form class="d-flex topOfForm" id="darkModeForm">
+			<button class="btn btn-light btnBorder" id="darkMode" title="Eyes tired? Use this button to toggle Dark Mode!" type="button"><img class="balloon" src="img/balloon-fill.svg"></button>
+		</form>
+		<script src="js/updateTotals.js"></script>
+		<script src="js/getTodaysDate.js"></script>
+	</body>
+</html>
