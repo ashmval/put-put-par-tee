@@ -7,7 +7,7 @@
 *
 * */
 
-// Allow the reset of the page, calculateChange function, and updateTotals. 
+// Allow the reset of the page, calculateChange function, and updateTotals.
 (() => {
     $('#changeButton').on("click", calculateChange);
     $('#resetForm').on("click", resetForm);
@@ -36,45 +36,47 @@ function updateTotals() {
     } else {
 
         // calculate costs
-
-        document.getElementById("numAdults").value = $adults;
+        $("#numAdults").val($adults);
         let $adultTotal = $adults * 4.00;
 
-        document.getElementById("numChildren").value = $children;
+        $("#numChildren").val($children);
         let $childTotal = $children * 2.00;
 
-        $("#totalAdultsDiv").innerHTML = "$" + $adultTotal.toFixed(2);
-        $("#totalChildrenDiv").innerHTML = "$" + $childTotal.toFixed(2);
+        $("#totalAdultsDiv").html("$" + $adultTotal.toFixed(2));
+        $("#totalChildrenDiv").html("$" + $childTotal.toFixed(2));
         let $totalBeforeTax = ($adultTotal + $childTotal);
+
+
 
         // get discount radio choice
         let $deduct = 0;
         let $discountString = "None";
-        if (document.getElementById("caa").checked == true) {
+        if ($("#caa").is(':checked')) {
             $deduct = $totalBeforeTax * .10;
             $totalBeforeTax = $totalBeforeTax - $deduct;
             $discountString = "CAA saved $" + $deduct.toFixed(2);
-        } else if (document.getElementById("mil").checked == true) {
+        } else if ($("#mil").is(":checked")) {
             $deduct = $totalBeforeTax * .25;
             $totalBeforeTax = $totalBeforeTax - $deduct;
             $discountString = "Military saved $" + $deduct.toFixed(2);
-        } else if (document.getElementById("fun").checked == true) {
+        } else if ($("#fun").is(":checked")) {
             $deduct = $totalBeforeTax * .50;
             $totalBeforeTax = $totalBeforeTax - $deduct;
             $discountString = "Super Fun Club saved $" + $deduct.toFixed(2);
         }
-
-        document.getElementById("discountString").innerHTML = $discountString;
+        $("#discountString").html($discountString);
 
         $totalAfterTax = $totalBeforeTax * 1.1;
-        document.getElementById("totalBeforeTaxDiv").innerHTML = "$" + $totalBeforeTax.toFixed(2);
-        document.getElementById("totalAfterTaxDiv").innerHTML = "$" + $totalAfterTax.toFixed(2);
+
+        $("#totalBeforeTaxDiv").html("$" + $totalBeforeTax.toFixed(2));
+        $("#totalAfterTaxDiv").html("$" + $totalAfterTax.toFixed(2));
+
+
     } // end if no adults or children selected
 
 
 } // end update Totals function
 
-//create function to reset the form
 function calculateChange() {
 
     let $amountGiven = $("#changeAmount").val();
