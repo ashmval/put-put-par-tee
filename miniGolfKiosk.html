@@ -3,8 +3,10 @@ Name: Don Bowers
 Date:
 Purpose: Demonstrate the use of forms and functions to create a mini golf business interface.
 
-
-Modified: Ashley Vallette - 2022-04-03 - Removed JS and CSS from page and altered styles
+Modified: Ashley Vallette - 2022-04-03 - Removed JS and CSS from page and revised the layout
+Images sourced from:
+ 	Pixabay (https://pixabay.com/vectors/golfing-golf-club-golf-green-hole-150314/) - Golf image
+ 	Bootstrap icons (https://icons.getbootstrap.com/) - Balloon icons
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +43,7 @@ Modified: Ashley Vallette - 2022-04-03 - Removed JS and CSS from page and altere
 						</span>
 					</div>
 					<div class="col-md-6 sideText">
+						<!-- Display today's date to the user. -->
 						<span class="largeFont">Point of Sale System </span> - <span id="todaysDate"></span>
 					</div>
 				</div>
@@ -93,30 +96,41 @@ Modified: Ashley Vallette - 2022-04-03 - Removed JS and CSS from page and altere
 						<div id="totalArea form-group">
 							<fieldset>
 								<legend><span class="largeFont">Totals</span></legend>
-								Number of Adults: <input class="form-control" type="text" id="numAdults" readonly="readonly" />    <span id="totalAdultsDiv"></span><br>
-								Number of Children: <input class="form-control" type="text" id="numChildren" readonly="readonly"/> <span id="totalChildrenDiv"></span><br><br>
+								<label for="numAdults">Number of Adults:</label>
+								<input class="form-control" type="text" id="numAdults" readonly="readonly" />
+								<span id="totalAdultsDiv"></span><br>
+								<label for="numChildren">Number of Children:</label>
+								<input class="form-control" type="text" id="numChildren" readonly="readonly"/>
+								<span id="totalChildrenDiv"></span><br><br>
 								Net Amount: <span id="totalBeforeTaxDiv"></span><br><br>
-								Gross Amount (including 10% tax): <span id="totalAfterTaxDiv"></span><br>
-								<label for="changeAmount">How much money did the customer give you?</label>
-								<input class="form-control" type="text" id="changeAmount" />
-								<div class="buttonPadding">
-									<button type="button" id="changeButton" class="btn btn-primary" onclick="calculateChange()">$CHANGE?</button>
-								</div>
-								<div id="changeOutput">
-									You owe the customer: <span id="changeDue"></span>
-								</div>
-								<hr>
+								Gross Amount (including 10% tax): <span id="totalAfterTaxDiv"></span>
+								<br />
 								Discounts Applied:<br>
 								<span id="discountString"></span>
 							</fieldset>
 						</div>
+
+						<hr>
+						<div class="form-group">
+							<fieldset>
+								<label for="changeAmount">How much money did the customer give you?</label>
+								<input class="form-control" type="text" id="changeAmount" />
+								<div id="changeOutput">
+									You owe the customer: <span id="changeDue"></span>
+								</div>
+								<div class="buttonPadding">
+									<button type="button" id="changeButton" class="btn btn-primary">Change</button>
+								</div>
+
+
+							</fieldset>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<form class="d-flex topOfForm" id="darkModeForm">
-			<button class="btn btn-light btnBorder" id="darkMode" title="Eyes tired? Use this button to toggle Dark Mode!" type="button"><img class="balloon" src="img/balloon-fill.svg"></button>
+			<button class="btn btn-light btnBorder" id="darkMode" title="Eyes tired? Use this button to toggle Dark Mode!" type="button"><img class="balloon" src="../../Project/nextjs-blog/public/images/balloon-fill.svg"></button>
 		</form>
 		<script src="js/updateTotals.js"></script>
 		<script src="js/getTodaysDate.js"></script>

@@ -7,8 +7,13 @@
 *
 * */
 
-// Allow the reset of the page, calculateChange function, and updateTotals.
-(() => {
+window.addEventListener("DOMContentLoaded", init, false);
+
+/*
+Function to load jQuery event listeners
+*/
+function init() {
+
     $('#changeButton').on("click", calculateChange);
     $('#resetForm').on("click", resetForm);
     $('#caa').on("change", updateTotals);
@@ -17,9 +22,7 @@
     $('#children').on("change", updateTotals);
     $('#adults').on("change", updateTotals);
     $('#children').on("change", updateTotals);
-})();
-
-
+}
 
 // declare global vars
 let $totalAfterTax = 0.00;
@@ -46,8 +49,6 @@ function updateTotals() {
         $("#totalChildrenDiv").html("$" + $childTotal.toFixed(2));
         let $totalBeforeTax = ($adultTotal + $childTotal);
 
-
-
         // get discount radio choice
         let $deduct = 0;
         let $discountString = "None";
@@ -72,18 +73,17 @@ function updateTotals() {
         $("#totalAfterTaxDiv").html("$" + $totalAfterTax.toFixed(2));
 
 
-    } // end if no adults or children selected
-
-
+    }
 } // end update Totals function
 
+// Calculate the change from the amount given.
 function calculateChange() {
-
     let $amountGiven = $("#changeAmount").val();
     let $changeDue = $amountGiven-$totalAfterTax;
     $("#changeDue").html("$"+$changeDue.toFixed(2));
     $("#changeOutput").css("display", "block");
 }
+
 //create function to reset the form
 function resetForm() {
     window.location = "miniGolfKiosk.html";
